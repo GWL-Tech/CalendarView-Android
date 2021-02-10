@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <declare-styleable name="CalendarView">
+        <attr name="dateFormat" format="string" />
+        <attr name="colorMonth" format="color" />
+        <attr name="colorDays" format="color"/>
+        <attr name="colorDates" format="color"/>
+        <attr name="disableColorDates" format="color"/>
+        <attr name="selectedColorDates" format="color"/>
+    </declare-styleable>
+        <attr name="customColor" format="color" />
+</resources>
