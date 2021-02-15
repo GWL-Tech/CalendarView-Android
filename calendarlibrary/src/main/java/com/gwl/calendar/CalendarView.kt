@@ -6,6 +6,7 @@ import android.graphics.Typeface
 import android.graphics.drawable.Drawable
 import android.os.Build
 import android.util.AttributeSet
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -27,6 +28,7 @@ class CalendarView : LinearLayout {
     private var disableColorDates: Int = 0
     private var selectedColorDates: Int = 0
     private var currentDateBackgroundImgDrawable: Drawable? = null
+    private var eventPosition: Int = Gravity.TOP or Gravity.LEFT
     private var selectedDates: ArrayList<Date> = ArrayList()
 
     // current displayed month
@@ -108,11 +110,15 @@ class CalendarView : LinearLayout {
                 R.styleable.CalendarView_selectedColorDates,
                 ContextCompat.getColor(context, R.color.white)
             )
-            currentDateBackgroundImgDrawable = ta.getDrawable(R.styleable.CalendarView_currentDateBackgroundImg)
+            currentDateBackgroundImgDrawable =
+                ta.getDrawable(R.styleable.CalendarView_currentDateBackgroundImg)
+            eventPosition = CalendarConfig.EventIconPosition.values()[ta.getInt(R.styleable.CalendarView_eventIconPosition, 4)].gravityValue
+
             if (dateFormat == null) dateFormat = DATE_FORMAT
             if (currentDateBackgroundImgDrawable == null) {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                    currentDateBackgroundImgDrawable = resources.getDrawable(R.drawable.reminder, null)
+                    currentDateBackgroundImgDrawable =
+                        resources.getDrawable(R.drawable.reminder, null)
                 } else {
                     currentDateBackgroundImgDrawable = resources.getDrawable(R.drawable.reminder)
                 }
@@ -172,27 +178,29 @@ class CalendarView : LinearLayout {
         grid?.also {
             it.onItemClickListener =
                 AdapterView.OnItemClickListener { view, cell, position, _ -> // handle long-press
-                    var date = view.getItemAtPosition(position) as Date
-                    val cal: Calendar = Calendar.getInstance()
-                    cal.time = date
-                    cal.set(Calendar.HOUR_OF_DAY, 0)
-                    cal.set(Calendar.MINUTE, 0)
-                    cal.set(Calendar.SECOND, 0)
-                    cal.set(Calendar.MILLISECOND, 0)
-                    date = cal.time
-                    var today = Date()
-                    cal.time = today
-                    cal.set(Calendar.HOUR_OF_DAY, 0)
-                    cal.set(Calendar.MINUTE, 0)
-                    cal.set(Calendar.SECOND, 0)
-                    cal.set(Calendar.MILLISECOND, 0)
-                    today = cal.time
-                    if (selectedDates.contains(date)) {
-                        selectedDates.remove(date)
-                    } else if (!isDisableNextMonthDate || date.after(today) || date.equals(today)) {
-                        selectedDates.add(date)
+                    if (view.getItemAtPosition(position) is Date) {
+                        var date = view.getItemAtPosition(position) as Date
+                        val cal: Calendar = Calendar.getInstance()
+                        cal.time = date
+                        cal.set(Calendar.HOUR_OF_DAY, 0)
+                        cal.set(Calendar.MINUTE, 0)
+                        cal.set(Calendar.SECOND, 0)
+                        cal.set(Calendar.MILLISECOND, 0)
+                        date = cal.time
+                        var today = Date()
+                        cal.time = today
+                        cal.set(Calendar.HOUR_OF_DAY, 0)
+                        cal.set(Calendar.MINUTE, 0)
+                        cal.set(Calendar.SECOND, 0)
+                        cal.set(Calendar.MILLISECOND, 0)
+                        today = cal.time
+                        if (selectedDates.contains(date)) {
+                            selectedDates.remove(date)
+                        } else if (!isDisableNextMonthDate || date.after(today) || date.equals(today)) {
+                            selectedDates.add(date)
+                        }
+                        calendarAdapter?.notifyDataSetChanged()
                     }
-                    calendarAdapter?.notifyDataSetChanged()
                 }
         }
     }
@@ -277,6 +285,12 @@ class CalendarView : LinearLayout {
             val itemTextView = showView as FrameLayout
             val textView = showView.findViewById<TextView>(R.id.itemTv)
             val eventHighLight = showView.findViewById<ImageView>(R.id.eventHighLight)
+            eventHighLight.layoutParams = FrameLayout.LayoutParams(
+                eventHighLight.layoutParams.width,
+                eventHighLight.layoutParams.height
+            ).apply {
+                gravity = eventPosition
+            }
             // getItem(position) date
             val date = getItem(position)
             date?.also {
@@ -407,6 +421,17 @@ class CalendarView : LinearLayout {
     public class CalendarConfig {
         private var calendarView: CalendarView? = null;
 
+        public enum class EventIconPosition(var gravityValue: Int) {
+            TOP(Gravity.TOP or Gravity.CENTER_HORIZONTAL),
+            BOTTOM(Gravity.BOTTOM or Gravity.CENTER_HORIZONTAL),
+            LEFT(Gravity.LEFT or Gravity.CENTER_VERTICAL),
+            RIGHT(Gravity.RIGHT or Gravity.CENTER_VERTICAL),
+            TOP_LEFT(Gravity.TOP or Gravity.LEFT),
+            TOP_RIGHT(Gravity.TOP or Gravity.RIGHT),
+            BOTTOM_LEFT(Gravity.BOTTOM or Gravity.LEFT),
+            BOTTOM_RIGHT(Gravity.BOTTOM or Gravity.RIGHT);
+        }
+
         constructor(context: Context, calendarView: CalendarView) {
             this.calendarView = calendarView
             calendarView.dateFormat = CalendarView.DATE_FORMAT
@@ -415,7 +440,8 @@ class CalendarView : LinearLayout {
             calendarView.colorDates = ContextCompat.getColor(context, R.color.white)
             calendarView.disableColorDates = ContextCompat.getColor(context, R.color.white)
             calendarView.selectedColorDates = ContextCompat.getColor(context, R.color.white)
-            calendarView.currentDateBackgroundImgDrawable = ContextCompat.getDrawable(context, R.drawable.reminder)
+            calendarView.currentDateBackgroundImgDrawable =
+                ContextCompat.getDrawable(context, R.drawable.reminder)
         }
 
         constructor(context: Context) : this(context, CalendarView(context)) {
@@ -453,6 +479,11 @@ class CalendarView : LinearLayout {
 
         fun setCurrentDateBackgroundImage(image: Drawable): CalendarConfig {
             calendarView?.currentDateBackgroundImgDrawable = image
+            return this
+        }
+
+        fun setEventIconPosition(position: EventIconPosition): CalendarConfig {
+            calendarView?.eventPosition =  position.gravityValue
             return this
         }
 

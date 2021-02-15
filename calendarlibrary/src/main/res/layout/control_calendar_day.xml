@@ -20,7 +20,7 @@
         android:id="@+id/eventHighLight"
         android:layout_width="@dimen/_5dp"
         android:layout_height="@dimen/_5dp"
-        android:layout_gravity="center_horizontal|bottom"
+        android:layout_gravity="left|top"
         android:layout_marginBottom="@dimen/_2dp"
         android:src="@drawable/circle_dot"
         android:visibility="gone"
