@@ -159,7 +159,7 @@
         android:background="@color/border_color" />
 
     <!-- days view -->
-    <com.gwl.shweta.calendar.ExpandableHeightGridView
+    <com.gwl.calendar.ExpandableHeightGridView
         android:id="@+id/calendar_grid"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

@@ -7,6 +7,7 @@
         <attr name="colorDates" format="color"/>
         <attr name="disableColorDates" format="color"/>
         <attr name="selectedColorDates" format="color"/>
+        <attr name="img" format="reference"/>
     </declare-styleable>
         <attr name="customColor" format="color" />
 </resources>
