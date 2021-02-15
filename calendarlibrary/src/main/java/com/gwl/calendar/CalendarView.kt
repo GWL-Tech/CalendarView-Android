@@ -26,7 +26,7 @@ class CalendarView : LinearLayout {
     private var colorDates: Int = 0
     private var disableColorDates: Int = 0
     private var selectedColorDates: Int = 0
-    private var img: Drawable? = null
+    private var currentDateBackgroundImgDrawable: Drawable? = null
     private var selectedDates: ArrayList<Date> = ArrayList()
 
     // current displayed month
@@ -108,13 +108,13 @@ class CalendarView : LinearLayout {
                 R.styleable.CalendarView_selectedColorDates,
                 ContextCompat.getColor(context, R.color.white)
             )
-            img = ta.getDrawable(R.styleable.CalendarView_img)
+            currentDateBackgroundImgDrawable = ta.getDrawable(R.styleable.CalendarView_currentDateBackgroundImg)
             if (dateFormat == null) dateFormat = DATE_FORMAT
-            if (img == null) {
+            if (currentDateBackgroundImgDrawable == null) {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                    img = resources.getDrawable(R.drawable.reminder, null)
+                    currentDateBackgroundImgDrawable = resources.getDrawable(R.drawable.reminder, null)
                 } else {
-                    img = resources.getDrawable(R.drawable.reminder)
+                    currentDateBackgroundImgDrawable = resources.getDrawable(R.drawable.reminder)
                 }
             }
         } finally {
@@ -330,7 +330,7 @@ class CalendarView : LinearLayout {
                         textView.setTypeface(null, Typeface.BOLD)
                         // itemTextView.setTextColor(ContextCompat.getColor(context, R.color.blue))
 
-                        textView.background = img
+                        textView.background = currentDateBackgroundImgDrawable
                     } else if (date.before(today)) {
 /*
                         textView.setTextColor(ContextCompat.getColor(context, R.color.border_color))
@@ -415,7 +415,7 @@ class CalendarView : LinearLayout {
             calendarView.colorDates = ContextCompat.getColor(context, R.color.white)
             calendarView.disableColorDates = ContextCompat.getColor(context, R.color.white)
             calendarView.selectedColorDates = ContextCompat.getColor(context, R.color.white)
-            calendarView.img = ContextCompat.getDrawable(context, R.drawable.reminder)
+            calendarView.currentDateBackgroundImgDrawable = ContextCompat.getDrawable(context, R.drawable.reminder)
         }
 
         constructor(context: Context) : this(context, CalendarView(context)) {
@@ -452,7 +452,7 @@ class CalendarView : LinearLayout {
         }
 
         fun setImage(image: Drawable): CalendarConfig {
-            calendarView?.img = image
+            calendarView?.currentDateBackgroundImgDrawable = image
             return this
         }
 
