@@ -451,7 +451,7 @@ class CalendarView : LinearLayout {
             return this
         }
 
-        fun setImage(image: Drawable): CalendarConfig {
+        fun setCurrentDateBackgroundImage(image: Drawable): CalendarConfig {
             calendarView?.currentDateBackgroundImgDrawable = image
             return this
         }
