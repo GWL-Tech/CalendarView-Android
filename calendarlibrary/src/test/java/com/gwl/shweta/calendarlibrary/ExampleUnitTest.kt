@@ -1,4 +1,4 @@
-package com.gwl.shweta.calendar
+package com.gwl.shweta.calendarlibrary
 
 import org.junit.Test
 
