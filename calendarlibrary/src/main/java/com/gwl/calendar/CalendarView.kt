@@ -28,6 +28,7 @@ class CalendarView : LinearLayout {
     private var disableColorDates: Int = 0
     private var selectedColorDates: Int = 0
     private var currentDateBackgroundImgDrawable: Drawable? = null
+    private var eventImageDrawable: Drawable? = null
     private var eventPosition: Int = Gravity.TOP or Gravity.LEFT
     private var selectedDates: ArrayList<Date> = ArrayList()
 
@@ -112,6 +113,10 @@ class CalendarView : LinearLayout {
             )
             currentDateBackgroundImgDrawable =
                 ta.getDrawable(R.styleable.CalendarView_currentDateBackgroundImg)
+
+            eventImageDrawable =
+                ta.getDrawable(R.styleable.CalendarView_eventImageDrawable)
+
             eventPosition = CalendarConfig.EventIconPosition.values()[ta.getInt(R.styleable.CalendarView_eventIconPosition, 4)].gravityValue
 
             if (dateFormat == null) dateFormat = DATE_FORMAT
@@ -121,6 +126,14 @@ class CalendarView : LinearLayout {
                         resources.getDrawable(R.drawable.reminder, null)
                 } else {
                     currentDateBackgroundImgDrawable = resources.getDrawable(R.drawable.reminder)
+                }
+            }
+            if (eventImageDrawable == null) {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                    eventImageDrawable =
+                        resources.getDrawable(R.drawable.circle_dot, null)
+                } else {
+                    eventImageDrawable = resources.getDrawable(R.drawable.circle_dot)
                 }
             }
         } finally {
@@ -331,9 +344,8 @@ class CalendarView : LinearLayout {
                         ) == year
                     ) {
                         eventHighLight.visibility = View.VISIBLE
-                        eventHighLight.setImageResource(R.drawable.circle_dot)
+                        eventHighLight.background=eventImageDrawable
                     }
-
                 }
                 textView.setTypeface(null, Typeface.NORMAL)
                 textView.setTextColor(disableColorDates)
@@ -442,6 +454,8 @@ class CalendarView : LinearLayout {
             calendarView.selectedColorDates = ContextCompat.getColor(context, R.color.white)
             calendarView.currentDateBackgroundImgDrawable =
                 ContextCompat.getDrawable(context, R.drawable.reminder)
+            calendarView.eventImageDrawable =
+                ContextCompat.getDrawable(context, R.drawable.circle_dot)
         }
 
         constructor(context: Context) : this(context, CalendarView(context)) {
@@ -477,8 +491,12 @@ class CalendarView : LinearLayout {
             return this
         }
 
-        fun setCurrentDateBackgroundImage(image: Drawable): CalendarConfig {
+        fun setCurrentDateBackgroundImage(image: Drawable?): CalendarConfig {
             calendarView?.currentDateBackgroundImgDrawable = image
+            return this
+        }
+        fun setEventImageDrawable(image: Drawable?): CalendarConfig {
+            calendarView?.eventImageDrawable = image
             return this
         }
 

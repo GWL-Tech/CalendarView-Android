@@ -22,7 +22,6 @@
         android:layout_height="@dimen/_5dp"
         android:layout_gravity="left|top"
         android:layout_marginBottom="@dimen/_2dp"
-        android:src="@drawable/circle_dot"
         android:visibility="gone"
         tools:visibility="visible" />
 </FrameLayout>

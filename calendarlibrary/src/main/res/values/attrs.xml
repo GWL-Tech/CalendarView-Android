@@ -8,6 +8,7 @@
         <attr name="disableColorDates" format="color"/>
         <attr name="selectedColorDates" format="color"/>
         <attr name="currentDateBackgroundImg" format="reference"/>
+        <attr name="eventImageDrawable" format="reference"/>
         <attr name="eventIconPosition" format="enum">
             <enum name="TOP" value="0"/>
             <enum name="BOTTOM" value="1"/>
