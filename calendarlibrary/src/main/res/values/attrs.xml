@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <declare-styleable name="CalendarView">
+        <attr name="dateFormat" format="string" />
+        <attr name="colorMonth" format="color" />
+        <attr name="colorDays" format="color"/>
+        <attr name="colorDates" format="color"/>
+        <attr name="disableColorDates" format="color"/>
+        <attr name="selectedColorDates" format="color"/>
+        <attr name="currentDateBackgroundImg" format="reference"/>
+        <attr name="eventImageDrawable" format="reference"/>
+        <attr name="eventIconPosition" format="enum">
+            <enum name="TOP" value="0"/>
+            <enum name="BOTTOM" value="1"/>
+            <enum name="LEFT" value="2"/>
+            <enum name="RIGHT" value="3"/>
+            <enum name="TOP_LEFT" value="4"/>
+            <enum name="TOP_RIGHT" value="5"/>
+            <enum name="BOTTOM_LEFT" value="6"/>
+            <enum name="BOTTOM_RIGHT" value="7"/>
+        </attr>
+    </declare-styleable>
+        <attr name="customColor" format="color" />
+</resources>
