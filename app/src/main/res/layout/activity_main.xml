@@ -4,10 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:calendarNS="http://schemas.android.com/apk/res-auto"
     android:background="@color/white"
     tools:context=".MainActivity">
 
-    <com.gwl.shweta.calendar.CalendarView
+    <com.gwl.calendar.CalendarView
         android:id="@+id/calendarView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -15,7 +16,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-
+        calendarNS:dateFormat="MMMM yyyy"
+        calendarNS:colorMonth="@color/blue"
+        calendarNS:colorDays="@color/blue"
+        calendarNS:colorDates="@color/dark_gray"
+        calendarNS:disableColorDates="@color/light_gray"
+        calendarNS:selectedColorDates="@color/white"
+        calendarNS:currentDateBackgroundImg="@drawable/reminder"
+        calendarNS:eventImageDrawable="@drawable/circle_red_dot"
+        calendarNS:eventIconPosition="RIGHT"
         />
 
     <Button

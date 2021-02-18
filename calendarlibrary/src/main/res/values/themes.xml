@@ -27,4 +27,10 @@
         <!-- title text color -->
         <item name="android:textColorPrimary">?attr/colorDays</item>
     </style>
+    <style name="EventDrawable" parent="@android:style/Theme.NoTitleBar">
+        <item name="eventImageDrawable">@drawable/circle_dot</item>
+    </style>
+    <style name="CurrentDateBackgroundImg" parent="@android:style/Theme.NoTitleBar">
+        <item name="currentDateBackgroundImg">@drawable/reminder</item>
+    </style>
 </resources>

@@ -1,4 +1,4 @@
-package com.gwl.shweta.calendar
+package com.gwl.calendar
 
 import java.util.Calendar
 import java.util.Date

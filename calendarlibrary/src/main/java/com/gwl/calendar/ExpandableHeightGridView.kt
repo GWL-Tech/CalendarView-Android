@@ -1,4 +1,4 @@
-package com.gwl.shweta.calendar
+package com.gwl.calendar
 
 import android.content.Context
 import android.util.AttributeSet
