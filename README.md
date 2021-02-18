@@ -116,7 +116,7 @@ calendarView.getSelectedDates()
 
 ### Attributes
 
-#### XML (All prefixed `cv_` for clarity)
+#### XML
 
 - **dateFormat**: The xml resource that is inflated and used to date format on header.
 
@@ -133,5 +133,5 @@ calendarView.getSelectedDates()
 - **currentDateBackgroundImg** : The xml resource that is inflated and used to give background of current date.
 
 - **eventIconPosition** : The xml resource that is inflated and used to give position of event icon.
-- 
+
 - **eventImageDrawable** : The xml resource that is inflated and used to drawable of event icon.
