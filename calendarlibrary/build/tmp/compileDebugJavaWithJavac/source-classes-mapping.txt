@@ -1,0 +1,2 @@
+com/gwl/calendar/BuildConfig.java
+ com.gwl.calendar.BuildConfig

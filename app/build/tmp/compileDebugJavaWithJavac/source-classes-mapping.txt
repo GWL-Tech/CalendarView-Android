@@ -1,0 +1,2 @@
+com/gwl/shweta/calendarlibrary/BuildConfig.java
+ com.gwl.shweta.calendarlibrary.BuildConfig

@@ -1,0 +1,4 @@
+#Wed Feb 17 16:48:42 IST 2021
+base.0=F\:\\Gwl_w2\\CalendarView-Android\\app\\build\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
+path.0=classes.dex
+renamed.0=classes.dex

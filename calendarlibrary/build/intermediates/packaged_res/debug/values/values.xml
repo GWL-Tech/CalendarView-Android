@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="http://schemas.android.com/tools">
+    <attr format="color" name="customColor"/>
+    <color name="activeDate">#201c2a</color>
+    <color name="black">#FF000000</color>
+    <color name="blue">#4b82ff</color>
+    <color name="border_color">#2e2e35</color>
+    <color name="fall">#44d8d27e</color>
+    <color name="green">#18A98E</color>
+    <color name="greyed_out">#c7c7c7</color>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="red">#FF2E2E</color>
+    <color name="spring">#b7b7b7</color>
+    <color name="summer">#44eebd82</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="transparent">#00000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="winter">#44a1c1da</color>
+    <color name="worningErrorColor">#e45e32</color>
+    <dimen name="_100dp">100dp</dimen>
+    <dimen name="_10dp">10dp</dimen>
+    <dimen name="_110dp">110dp</dimen>
+    <dimen name="_120dp">120dp</dimen>
+    <dimen name="_12dp">12dp</dimen>
+    <dimen name="_14dp">14dp</dimen>
+    <dimen name="_15dp">15dp</dimen>
+    <dimen name="_16dp">16dp</dimen>
+    <dimen name="_17dp">17dp</dimen>
+    <dimen name="_18dp">18dp</dimen>
+    <dimen name="_19dp">19dp</dimen>
+    <dimen name="_1dp">1dp</dimen>
+    <dimen name="_200dp">200dp</dimen>
+    <dimen name="_20dp">20dp</dimen>
+    <dimen name="_215dp">215dp</dimen>
+    <dimen name="_21dp">21dp</dimen>
+    <dimen name="_22dp">22dp</dimen>
+    <dimen name="_23dp">23dp</dimen>
+    <dimen name="_24dp">24dp</dimen>
+    <dimen name="_25dp">25dp</dimen>
+    <dimen name="_26dp">26dp</dimen>
+    <dimen name="_285dp">285dp</dimen>
+    <dimen name="_2dp">2dp</dimen>
+    <dimen name="_30dp">30dp</dimen>
+    <dimen name="_35dp">35dp</dimen>
+    <dimen name="_36dp">36dp</dimen>
+    <dimen name="_3dp">3dp</dimen>
+    <dimen name="_40dp">40dp</dimen>
+    <dimen name="_45dp">45dp</dimen>
+    <dimen name="_46dp">46dp</dimen>
+    <dimen name="_47dp">47dp</dimen>
+    <dimen name="_4dp">4dp</dimen>
+    <dimen name="_50dp">50dp</dimen>
+    <dimen name="_52dp">52dp</dimen>
+    <dimen name="_55dp">55dp</dimen>
+    <dimen name="_5dp">5dp</dimen>
+    <dimen name="_60dp">60dp</dimen>
+    <dimen name="_6dp">6dp</dimen>
+    <dimen name="_70dp">70dp</dimen>
+    <dimen name="_7dp">7dp</dimen>
+    <dimen name="_80dp">80dp</dimen>
+    <dimen name="_8dp">8dp</dimen>
+    <dimen name="_90dp">90dp</dimen>
+    <dimen name="_9dp">9dp</dimen>
+    <dimen name="text_heading10">10sp</dimen>
+    <dimen name="text_heading11">11sp</dimen>
+    <dimen name="text_heading12">12sp</dimen>
+    <dimen name="text_heading13">13sp</dimen>
+    <dimen name="text_heading14">14sp</dimen>
+    <dimen name="text_heading15">15sp</dimen>
+    <dimen name="text_heading16">16sp</dimen>
+    <dimen name="text_heading17">17sp</dimen>
+    <dimen name="text_heading18">18sp</dimen>
+    <dimen name="text_heading20">20sp</dimen>
+    <dimen name="text_heading24">24sp</dimen>
+    <dimen name="text_heading28">28sp</dimen>
+    <dimen name="text_heading30">30sp</dimen>
+    <dimen name="text_heading34">34sp</dimen>
+    <dimen name="text_heading48">48sp</dimen>
+    <dimen name="text_heading64">64sp</dimen>
+    <string name="app_name">CalendarLibrary</string>
+    <string name="current_date">Current date</string>
+    <string name="fri">Fri</string>
+    <string name="mon">Mon</string>
+    <string name="month">Month</string>
+    <string name="sat">Sat</string>
+    <string name="sun">Sun</string>
+    <string name="thu">Thu</string>
+    <string name="tue">Tue</string>
+    <string name="wed">Wed</string>
+    <string name="year">Year</string>
+    <style name="AppTheme" parent="Theme.AppCompat">
+        <item name="customColor">?attr/colorDays</item>
+        <item name="android:textColorPrimary">?attr/colorDays</item>
+    </style>
+    <style name="AppTheme.AnotherColor" parent="Theme.AppCompat">
+        <item name="colorDays">@color/white</item>
+    </style>
+    <style name="CurrentDateBackgroundImg" parent="@android:style/Theme.NoTitleBar">
+        <item name="currentDateBackgroundImg">@drawable/reminder</item>
+    </style>
+    <style name="CustomActionBar">
+        <!-- title text color -->
+        <item name="android:textColorPrimary">?attr/colorDays</item>
+    </style>
+    <style name="EventDrawable" parent="@android:style/Theme.NoTitleBar">
+        <item name="eventImageDrawable">@drawable/circle_dot</item>
+    </style>
+    <style name="Theme.CalendarLibrary" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" ns1:targetApi="l">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+    </style>
+    <declare-styleable name="CalendarView">
+        <attr format="string" name="dateFormat"/>
+        <attr format="color" name="colorMonth"/>
+        <attr format="color" name="colorDays"/>
+        <attr format="color" name="colorDates"/>
+        <attr format="color" name="disableColorDates"/>
+        <attr format="color" name="selectedColorDates"/>
+        <attr format="reference" name="currentDateBackgroundImg"/>
+        <attr format="reference" name="eventImageDrawable"/>
+        <attr format="enum" name="eventIconPosition">
+            <enum name="TOP" value="0"/>
+            <enum name="BOTTOM" value="1"/>
+            <enum name="LEFT" value="2"/>
+            <enum name="RIGHT" value="3"/>
+            <enum name="TOP_LEFT" value="4"/>
+            <enum name="TOP_RIGHT" value="5"/>
+            <enum name="BOTTOM_LEFT" value="6"/>
+            <enum name="BOTTOM_RIGHT" value="7"/>
+        </attr>
+    </declare-styleable>
+</resources>
