@@ -117,17 +117,12 @@ class CalendarView : LinearLayout {
             eventImageDrawable =
                 ta.getDrawable(R.styleable.CalendarView_eventImageDrawable)
 
-            eventPosition = CalendarConfig.EventIconPosition.values()[ta.getInt(R.styleable.CalendarView_eventIconPosition, 4)].gravityValue
+            eventPosition = CalendarConfig.EventIconPosition.values()[ta.getInt(
+                R.styleable.CalendarView_eventIconPosition,
+                4
+            )].gravityValue
 
             if (dateFormat == null) dateFormat = DATE_FORMAT
-            if (currentDateBackgroundImgDrawable == null) {
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                    currentDateBackgroundImgDrawable =
-                        resources.getDrawable(R.drawable.reminder, null)
-                } else {
-                    currentDateBackgroundImgDrawable = resources.getDrawable(R.drawable.reminder)
-                }
-            }
             if (eventImageDrawable == null) {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                     eventImageDrawable =
@@ -344,7 +339,7 @@ class CalendarView : LinearLayout {
                         ) == year
                     ) {
                         eventHighLight.visibility = View.VISIBLE
-                        eventHighLight.background=eventImageDrawable
+                        eventHighLight.background = eventImageDrawable
                     }
                 }
                 textView.setTypeface(null, Typeface.NORMAL)
@@ -355,8 +350,9 @@ class CalendarView : LinearLayout {
 
                         textView.setTypeface(null, Typeface.BOLD)
                         // itemTextView.setTextColor(ContextCompat.getColor(context, R.color.blue))
-
-                        textView.background = currentDateBackgroundImgDrawable
+                        if (currentDateBackgroundImgDrawable != null) {
+                            textView.background = currentDateBackgroundImgDrawable
+                        }
                     } else if (date.before(today)) {
 /*
                         textView.setTextColor(ContextCompat.getColor(context, R.color.border_color))
@@ -453,7 +449,7 @@ class CalendarView : LinearLayout {
             calendarView.disableColorDates = ContextCompat.getColor(context, R.color.white)
             calendarView.selectedColorDates = ContextCompat.getColor(context, R.color.white)
             calendarView.currentDateBackgroundImgDrawable =
-                ContextCompat.getDrawable(context, R.drawable.reminder)
+                null
             calendarView.eventImageDrawable =
                 ContextCompat.getDrawable(context, R.drawable.circle_dot)
         }
@@ -495,13 +491,14 @@ class CalendarView : LinearLayout {
             calendarView?.currentDateBackgroundImgDrawable = image
             return this
         }
+
         fun setEventImageDrawable(image: Drawable?): CalendarConfig {
             calendarView?.eventImageDrawable = image
             return this
         }
 
         fun setEventIconPosition(position: EventIconPosition): CalendarConfig {
-            calendarView?.eventPosition =  position.gravityValue
+            calendarView?.eventPosition = position.gravityValue
             return this
         }
 
