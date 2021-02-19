@@ -22,7 +22,6 @@
         calendarNS:colorDates="@color/dark_gray"
         calendarNS:disableColorDates="@color/light_gray"
         calendarNS:selectedColorDates="@color/white"
-        calendarNS:currentDateBackgroundImg="@drawable/reminder"
         calendarNS:eventImageDrawable="@drawable/circle_red_dot"
         calendarNS:eventIconPosition="RIGHT"
         />

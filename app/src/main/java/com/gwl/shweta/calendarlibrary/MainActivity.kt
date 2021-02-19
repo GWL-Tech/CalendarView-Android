@@ -21,8 +21,8 @@ class MainActivity : AppCompatActivity() {
             .setDisabledDatesColor(ContextCompat.getColor(this, R.color.light_gray))
             .setMonthHeaderColor(ContextCompat.getColor(this, R.color.blue))
             .setSelectedDatesColor(ContextCompat.getColor(this, R.color.white))
-//            .setCurrentDateBackgroundImage(ContextCompat.getDrawable(this, R.drawable.ic_redright_arrow))
-//            .setEventImageDrawable(ContextCompat.getDrawable(this, R.drawable.circle_red_dot))
+            .setCurrentDateBackgroundImage(ContextCompat.getDrawable(this, R.drawable.ic_redright_arrow))
+            .setEventImageDrawable(ContextCompat.getDrawable(this, R.drawable.circle_red_dot))
             .setEventIconPosition(CalendarConfig.EventIconPosition.TOP_RIGHT)
             .build()*/
         calendarView.isDisableNextfutureDate(true)
