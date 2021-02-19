@@ -18,3 +18,5 @@
 gradle.deps
 .cxx
 local.properties
+/calendarlibrary/build
+/app/build
